@@ -8,6 +8,7 @@ __pycache__/
 .git/
 .github/
 .env
+dist
 
 # TODO: Decide whether tests/, docs/, and other development-only files
 # should be excluded from your final application image build context.
