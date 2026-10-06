@@ -31,6 +31,25 @@ jobs:
       - name: Run automated tests
         run: python -m pytest -v
 
+      - name: Create package directory
+        run: mkdir -p dist/package
+
+      - name: Copy application files
+        run: |
+          cp -r app dist/package/
+          cp requirements.txt README.md VERSION dist/package/
+
+      - name: Create ZIP package
+        run: |
+          cd dist/package
+          zip -r ../sdi4213-app.zip .
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdi4213-app
+          path: dist/sdi4213-app.zip
+
       # WEEK 5 TODO:
       # Add steps below to:
       # 1. Create a build directory.
